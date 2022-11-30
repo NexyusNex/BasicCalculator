@@ -18,6 +18,18 @@ function operate(a,b,operator){
         case"*":console.log(multiply(a,b)); break;
     }
 }
+
+var buttonlist = document.querySelectorAll("button");
+
+buttonlist.forEach((btn)=>{
+    btn.addEventListener("click", function(e){
+        
+        display.innerText+=e.target.innerText;
+    })
+})
+
+var display = document.getElementById('text');
+var displayValue=''
 var a=5;
 var b=2;
 var operator="*";
