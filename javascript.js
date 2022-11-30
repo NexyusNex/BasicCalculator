@@ -31,8 +31,8 @@ buttonlist.forEach((btn)=>{
                 isSecond=true;
                 display.innerText='';
             } else {
-                operator='+';
-                a=operate(a,Number(display.innerText),operator);
+                a=operate(a,Number(display.innerText),operator)
+                operator='+';             
                 display.innerText='';
                 
             } console.log(a);break;
@@ -45,8 +45,8 @@ buttonlist.forEach((btn)=>{
                 isSecond=true;
                 display.innerText='';
             } else {
-                operator='-';
                 a=operate(a,Number(display.innerText),operator);
+                operator='-';
                 display.innerText='';
             } console.log(a);break;
 
@@ -57,8 +57,8 @@ buttonlist.forEach((btn)=>{
                 isSecond=true;
                 display.innerText='';
             } else {
-                operator='/';
                 a=operate(a,Number(display.innerText),operator);
+                operator='/';
                 display.innerText='';
             } console.log(a);break;
 
@@ -69,8 +69,8 @@ buttonlist.forEach((btn)=>{
                 isSecond=true;
                 display.innerText='';
             } else {
-                operator='*';
                 a=operate(a,Number(display.innerText),operator);
+                operator='*';
                 display.innerText='';
             } console.log(a);break;
 
@@ -80,7 +80,13 @@ buttonlist.forEach((btn)=>{
             done=true;
             break;
 
-            case 'C': display.innerText='';a=0;b=0; break;
+            case 'C': 
+            display.innerText='';
+            a=0;
+            b=0;
+            isSecond=false;
+            break;
+
             default:
                 if(done==true){
                     done=false;
