@@ -36,16 +36,37 @@ buttonlist.forEach((btn)=>{
             } break;
 
             case '-': 
-            a=Number(e.target.innerText);
-            operator='-'; break;
+            if(isSecond==false){
+                a=Number(display.innerText);
+                operator='-';
+                isSecond=true;
+                display.innerText='';
+            } else {
+                a=operate(a,Number(display.innerText),operator);
+                display.innerText='';
+            } break;
 
             case '/': 
-            a=Number(e.target.innerText);
-            operator='/'; break;
+            if(isSecond==false){
+                a=Number(display.innerText);
+                operator='/';
+                isSecond=true;
+                display.innerText='';
+            } else {
+                a=operate(a,Number(display.innerText),operator);
+                display.innerText='';
+            } break;
 
             case '*': 
-            a=Number(e.target.innerText);
-            operator='*'; break;
+            if(isSecond==false){
+                a=Number(display.innerText);
+                operator='*';
+                isSecond=true;
+                display.innerText='';
+            } else {
+                a=operate(a,Number(display.innerText),operator);
+                display.innerText='';
+            } break;
 
             case '=': 
             display.innerText=operate(a,Number(display.innerText),operator);
