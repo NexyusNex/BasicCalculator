@@ -75,9 +75,11 @@ buttonlist.forEach((btn)=>{
             } console.log(a);break;
 
             case '=': 
+            if(isSecond==true){
             display.innerText=operate(a,Number(display.innerText),operator);
             isSecond=false;
             done=true;
+            }
             break;
 
             case 'C': 
@@ -97,7 +99,6 @@ buttonlist.forEach((btn)=>{
         }
     })
 })
-
 var display = document.getElementById('text');
 var isSecond = false, done=false; 
 var a=0, b, operator;

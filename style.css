@@ -34,3 +34,15 @@ body{
 .buttons button{
     margin:1px;
 }
+.bisque {
+    background-color:#ffe4c4;
+}
+.bisque:active{
+    background-color:#bba790;
+}
+.red {
+    background-color:#ffafaf
+}
+.red:active {
+    background-color:#ad7979
+}
