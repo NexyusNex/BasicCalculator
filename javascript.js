@@ -24,56 +24,19 @@ var buttonlist = document.querySelectorAll("button");
 buttonlist.forEach((btn)=>{
     btn.addEventListener("click", function(e){
         switch(e.target.innerText){
-            case '+':
+            case '+': case '-': case '*': case '/':
             if(isSecond==false){
                 a=Number(display.innerText);
-                operator='+';
+                operator=e.target.innerText;
                 isSecond=true;
                 display.innerText='';
             } else {
                 a=operate(a,Number(display.innerText),operator)
-                operator='+';             
+                operator=e.target.innerText;             
                 display.innerText='';
                 
             } console.log(a);break;
-
-            case '-':
-            
-            if(isSecond==false){
-                a=Number(display.innerText);
-                operator='-';
-                isSecond=true;
-                display.innerText='';
-            } else {
-                a=operate(a,Number(display.innerText),operator);
-                operator='-';
-                display.innerText='';
-            } console.log(a);break;
-
-            case '/': 
-            if(isSecond==false){
-                a=Number(display.innerText);
-                operator='/';
-                isSecond=true;
-                display.innerText='';
-            } else {
-                a=operate(a,Number(display.innerText),operator);
-                operator='/';
-                display.innerText='';
-            } console.log(a);break;
-
-            case '*': 
-            if(isSecond==false){
-                a=Number(display.innerText);
-                operator='*';
-                isSecond=true;
-                display.innerText='';
-            } else {
-                a=operate(a,Number(display.innerText),operator);
-                operator='*';
-                display.innerText='';
-            } console.log(a);break;
-
+          
             case '=': 
             if(isSecond==true){
             display.innerText=operate(a,Number(display.innerText),operator);
@@ -82,10 +45,9 @@ buttonlist.forEach((btn)=>{
             }
             break;
 
-            case 'C': 
+            case 'C':
             display.innerText='';
             a=0;
-            b=0;
             isSecond=false;
             break;
 
@@ -101,4 +63,4 @@ buttonlist.forEach((btn)=>{
 })
 var display = document.getElementById('text');
 var isSecond = false, done=false; 
-var a=0, b, operator;
+var a=0, operator;
