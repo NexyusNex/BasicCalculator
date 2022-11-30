@@ -12,10 +12,10 @@ function divide(a,b){
 }
 function operate(a,b,operator){
     switch(operator){
-        case"+":console.log(add(a,b)); break;
-        case"-":console.log(substract(a,b)); break;
-        case"/":console.log(divide(a,b)); break;
-        case"*":console.log(multiply(a,b)); break;
+        case"+":return(add(a,b)); break;
+        case"-":return(substract(a,b)); break;
+        case"/":return(divide(a,b)); break;
+        case"*":return(multiply(a,b)); break;
     }
 }
 
@@ -23,14 +23,48 @@ var buttonlist = document.querySelectorAll("button");
 
 buttonlist.forEach((btn)=>{
     btn.addEventListener("click", function(e){
-        
-        display.innerText+=e.target.innerText;
+        switch(e.target.innerText){
+            case '+':
+            if(isSecond==false){
+                a=Number(display.innerText);
+                operator='+';
+                isSecond=true;
+                display.innerText='';
+            } else {
+                a=operate(a,Number(display.innerText),operator);
+                display.innerText='';
+            } break;
+
+            case '-': 
+            a=Number(e.target.innerText);
+            operator='-'; break;
+
+            case '/': 
+            a=Number(e.target.innerText);
+            operator='/'; break;
+
+            case '*': 
+            a=Number(e.target.innerText);
+            operator='*'; break;
+
+            case '=': 
+            display.innerText=operate(a,Number(display.innerText),operator);
+            isSecond=false;
+            done=true;
+            break;
+
+            case 'C': display.innerText='';a=0;b=0; break;
+            default:
+                if(done==true){
+                    done=false;
+                    display.innerText='';
+                }
+            display.innerText+=e.target.innerText;
+            break;
+        }
     })
 })
 
 var display = document.getElementById('text');
-var displayValue=''
-var a=5;
-var b=2;
-var operator="*";
-operate(a,b,operator);
+var isSecond = false, done=false; 
+var a, b, operator;
