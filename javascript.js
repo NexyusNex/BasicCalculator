@@ -61,6 +61,13 @@ buttonlist.forEach((btn)=>{
             isSecond=false;
             break;
 
+            case 'DEL':
+            if(display.innerText.slice(-1)=='.'){
+                isDecimal=false;
+            }
+            display.innerText=display.innerText.slice(0,-1);
+            break;
+
             default:
                 if(done==true){
                     done=false;
@@ -112,6 +119,13 @@ document.addEventListener('keydown',function(e){
         a=0;
         isSecond=false;
         break;
+
+        case 'Backspace':
+            if(display.innerText.slice(-1)=='.'){
+                isDecimal=false;
+            }
+            display.innerText=display.innerText.slice(0,-1);
+            break;
 
         case '1': case '2': case '3': case '4': case '5':
         case '6': case '7': case '8': case '9': case '0':
