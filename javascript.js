@@ -72,6 +72,59 @@ buttonlist.forEach((btn)=>{
         }
     })
 })
+
+document.addEventListener('keydown',function(e){
+    console.log(e);
+    switch(e.key){
+        case '+': case '-': case '*': case '/':
+        isDecimal=false;
+        if(isSecond==false){
+            a=Number(display.innerText);
+            operator=e.key;
+            isSecond=true;
+            display.innerText='';
+        } else {
+            a=operate(a,Number(display.innerText),operator)
+            operator=e.key;             
+            display.innerText='';
+            
+        } console.log(a);break;
+        
+        case '.':
+            if(isDecimal==true){
+                break;
+            }
+            display.textContent+='.';
+            isDecimal=true;
+            break;
+
+        case '=': 
+        if(isSecond==true){
+        display.innerText=operate(a,Number(display.innerText),operator);
+        isSecond=false;
+        done=true;
+        }
+        break;
+
+        case 'C': case 'c':
+        isDecimal=false;
+        display.innerText='';
+        a=0;
+        isSecond=false;
+        break;
+
+        case '1': case '2': case '3': case '4': case '5':
+        case '6': case '7': case '8': case '9': case '0':
+            if(done==true){
+                done=false;
+                isDecimal=false;
+                display.innerText='';
+            }
+        display.innerText+=e.key;
+        break;
+    }
+})
+
 var display = document.getElementById('text');
 var isSecond = false, done=false, isDecimal=false; 
 var a=0, operator;
