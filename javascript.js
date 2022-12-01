@@ -81,6 +81,7 @@ buttonlist.forEach((btn)=>{
 })
 
 document.addEventListener('keydown',function(e){
+    e.preventDefault();
     console.log(e);
     switch(e.key){
         case '+': case '-': case '*': case '/':
