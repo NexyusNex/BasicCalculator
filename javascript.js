@@ -25,6 +25,7 @@ buttonlist.forEach((btn)=>{
     btn.addEventListener("click", function(e){
         switch(e.target.innerText){
             case '+': case '-': case '*': case '/':
+            isDecimal=false;
             if(isSecond==false){
                 a=Number(display.innerText);
                 operator=e.target.innerText;
@@ -36,7 +37,15 @@ buttonlist.forEach((btn)=>{
                 display.innerText='';
                 
             } console.log(a);break;
-          
+            
+            case '.':
+                if(isDecimal==true){
+                    break;
+                }
+                display.textContent+='.';
+                isDecimal=true;
+                break;
+
             case '=': 
             if(isSecond==true){
             display.innerText=operate(a,Number(display.innerText),operator);
@@ -46,6 +55,7 @@ buttonlist.forEach((btn)=>{
             break;
 
             case 'C':
+            isDecimal=false;
             display.innerText='';
             a=0;
             isSecond=false;
@@ -54,6 +64,7 @@ buttonlist.forEach((btn)=>{
             default:
                 if(done==true){
                     done=false;
+                    isDecimal=false;
                     display.innerText='';
                 }
             display.innerText+=e.target.innerText;
@@ -62,5 +73,5 @@ buttonlist.forEach((btn)=>{
     })
 })
 var display = document.getElementById('text');
-var isSecond = false, done=false; 
+var isSecond = false, done=false, isDecimal=false; 
 var a=0, operator;
