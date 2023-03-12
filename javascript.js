@@ -1,14 +1,14 @@
 function add(a, b) {
-  return a + b;
+  return (a + b) % 1 == 0 ? a + b : (a + b).toFixed(2);
 }
 function substract(a, b) {
-  return a - b;
+  return (a - b) % 1 == 0 ? a - b : (a - b).toFixed(2);
 }
 function multiply(a, b) {
-  return a * b;
+  return (a * b) % 1 == 0 ? a * b : (a * b).toFixed(2);
 }
 function divide(a, b) {
-  return a / b;
+  return (a / b) % 1 == 0 ? a / b : (a / b).toFixed(2);
 }
 function operate(a, b, operator) {
   switch (operator) {
